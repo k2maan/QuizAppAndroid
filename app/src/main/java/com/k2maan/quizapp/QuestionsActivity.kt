@@ -16,8 +16,11 @@ class QuestionsActivity : AppCompatActivity() {
 
         progressBar.progress = currentPos
         tvProgress.text = "$currentPos" + "/" + progressBar.max
+
         tvQuestion.text = question!!.question
+
         ivImage.setImageResource(question.image)
+
         tvOptionOne.text = question.option1
         tvOptionTwo.text = question.option2
         tvOptionThree.text = question.option3
