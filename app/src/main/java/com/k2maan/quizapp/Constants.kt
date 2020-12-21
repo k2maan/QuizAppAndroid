@@ -40,7 +40,7 @@ object Constants{
                 "USA",
                 "Japan",
                 "South Africa",
-                "Austria",
+                "Australia",
                 4
         )
         questionList.add(question3)
