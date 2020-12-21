@@ -7,24 +7,23 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="#9966ff">
+    android:background="@drawable/ic_bg_dark">
 
     <TextView
         android:id="@+id/tvAppName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="QUIZZED!"
-        android:textSize="36sp"
+        android:text="The Country Quiz!"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/green"
         android:layout_marginBottom="30dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-
         android:layout_marginEnd="20dp"
         android:background="@color/black"
         app:cardCornerRadius="10dp"
@@ -39,25 +38,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Begin the Quiz"
-                android:textColor="#363A43"
-                android:textSize="30sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="5dp"
-                android:text="Enter Your Name"
-                android:textColor="#7A8089"
-                android:textSize="18sp"/>
+                android:text="Enter your name to begin:"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -66,7 +54,7 @@
                     android:id="@+id/etName"
                     android:hint="Name"
                     android:textColor="#363A43"
-                    android:textColorHint="#7A8089"/>
+                    android:textColorHint="@color/green"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,10 +63,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@color/design_default_color_primary"
                 android:text="START"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/parrot_green"
+                android:backgroundTint="@color/green"
                 android:textSize="18sp"/>
 
         </LinearLayout>
