@@ -1,5 +1,6 @@
 package com.k2maan.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -15,10 +16,14 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mCurrentPosition:Int = 1
     private var mQuestionsList:ArrayList<Question>? = null
     private var mSelectedOptionPosition:Int = 0
+    private var mCorrectAnswers:Int = 0
+    private var mUsername:String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions)
+
+        mUsername = intent.getStringExtra(Constants.USER_NAME)
 
         mQuestionsList = Constants.getQuestions()
         setQuestion()
@@ -99,10 +104,14 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         mCurrentPosition <= mQuestionsList!!.size -> {
                             setQuestion()
                         } else -> {
-                            Toast.makeText(
-                                    this,
-                                    "Completed", Toast.LENGTH_SHORT
-                            ).show()
+                            val intent = Intent(this, FinishActivity::class.java)
+                            intent.putExtra(Constants.USER_NAME, mUsername)
+
+                            intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
+
+                            startActivity(intent)
+                            finish()
                         }
                     }
                 } else {
@@ -110,6 +119,8 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
                     if(question!!.correctAnswer != mSelectedOptionPosition){
                         answerView(mSelectedOptionPosition, R.drawable.wrong_option_bg)
+                    } else {
+                        mCorrectAnswers++
                     }
                     answerView(question.correctAnswer, R.drawable.correct_option_bg)
 

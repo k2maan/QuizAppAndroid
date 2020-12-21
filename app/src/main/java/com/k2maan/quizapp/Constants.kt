@@ -1,6 +1,11 @@
 package com.k2maan.quizapp
 
 object Constants{
+
+    const val USER_NAME:String = "username"
+    const val TOTAL_QUESTIONS:String = "Total questions"
+    const val CORRECT_ANSWERS:String = "Correct Answers"
+
     fun getQuestions(): ArrayList<Question>{
         val questionList = ArrayList<Question>()
 
